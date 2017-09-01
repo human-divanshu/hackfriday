@@ -6,4 +6,4 @@ DEPS = myfuns.h
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 all: myfuns.cpp shell.cpp cmd.cpp
-	$(CC) $(CFLAGS) -o shell myfuns.cpp shell.cpp
+	$(CC) $(CFLAGS) -o shell myfuns.cpp shell.cpp cmd.cpp
