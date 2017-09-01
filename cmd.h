@@ -9,6 +9,9 @@ class Command {
 
 	Command(string s, int i) {
 		cmdName = s;
-		cmdArg = i;
+		cmdArg = i;		
 	}
 };
+
+vector<Command> cmdVector;
+void cmdinit();

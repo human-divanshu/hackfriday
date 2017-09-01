@@ -4,11 +4,14 @@
 #include "myfuns.h"
 #include <map>
 #include <cctype>
+#include "cmd.h"
 
 using namespace std;
 enum state {NONE, ALPHA, DIGIT, OPERATOR, SPACE, STRING, BLOCK, NEWLINE};
 map<string, string> m;
 string token;
+
+extern vector<Command> cmdVector;
 
 class Token {
 	public:
@@ -40,8 +43,17 @@ void throw_error(string s)
 
 bool iskeyword(string s)
 {
-	vector<string> v = {"copy", "pwd", "cd", "move", "find", "dir", "echo"};
+	//vector<string> v = {"copy", "pwd", "cd", "move", "find", "dir", "echo"};
+	vector<string> v;
+
+	for(int i = 0; i < cmdVector.size(); i++) {
+		cout << "doing" << endl;
+		v.push_back(cmdVector[i].cmdName);
+	}
+
+	//for(int i = 0; i < cmdVector.size(); i++) {
 	for(int i = 0; i < v.size(); i++) {
+		//if(cmdVector[i].cmdName == s)
 		if(v[i] == s)
 			return true;
 	}
@@ -252,6 +264,9 @@ int main(void)
 {
 	string s;
 	vector<Token> v;
+
+	// initialize the command structure
+	cmdinit();
 
 	do {
 		cout << ">>> ";

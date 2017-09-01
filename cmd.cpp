@@ -26,3 +26,4 @@ cmdVector.push_back(temp[20]("rename", 2));
 cmdVector.push_back(temp[21]("uniq", 1));
 cmdVector.push_back(temp[22]("sleep", 1));
 cmdVector.push_back(temp[23]("uptime", 0));
+
