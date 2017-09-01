@@ -4,14 +4,43 @@
 #include "myfuns.h"
 #include <map>
 #include <cctype>
-#include "cmd.h"
+#include <ctime>
 
 using namespace std;
 enum state {NONE, ALPHA, DIGIT, OPERATOR, SPACE, STRING, BLOCK, NEWLINE};
 map<string, string> m;
 string token;
 
-extern vector<Command> cmdVector;
+map<string, int> cmdMap;
+
+
+void cmdMapinit()
+{
+	cmdMap["copy"]  = 2;
+	cmdMap["dir"] = 0;
+	cmdMap["pwd"] = 0;
+	cmdMap["cd"] = 1;
+	cmdMap["move"] = 2;
+	cmdMap["find"] = 1;
+	cmdMap["whoami"] = 0;
+	cmdMap["exit"] = 0;
+	cmdMap["echo"] = 1;
+	cmdMap["history"] = 0;
+	cmdMap["help"] = 0;
+	cmdMap["cat"] = 1;
+	cmdMap["wc"] = 1;
+	cmdMap["date"] = 0;
+	cmdMap["diff"] = 2;
+	cmdMap["head"] = 1;
+	cmdMap["tail"] = 1;
+	cmdMap["man"] = 1;
+	cmdMap["time"] = 0;
+	cmdMap["del"] = 1;
+	cmdMap["rename"] = 2;
+	cmdMap["uniq"] = 1;
+	cmdMap["sleep"] = 1;
+	cmdMap["uptime"] = 0;	
+}
 
 class Token {
 	public:
@@ -42,21 +71,10 @@ void throw_error(string s)
 }
 
 bool iskeyword(string s)
-{
-	//vector<string> v = {"copy", "pwd", "cd", "move", "find", "dir", "echo"};
-	vector<string> v;
-
-	for(int i = 0; i < cmdVector.size(); i++) {
-		cout << "doing" << endl;
-		v.push_back(cmdVector[i].cmdName);
-	}
-
-	//for(int i = 0; i < cmdVector.size(); i++) {
-	for(int i = 0; i < v.size(); i++) {
-		//if(cmdVector[i].cmdName == s)
-		if(v[i] == s)
-			return true;
-	}
+{	
+	if(cmdMap.find(s) != cmdMap.end())
+		return true;
+	
 	return false;
 }
 
@@ -264,21 +282,42 @@ int main(void)
 {
 	string s;
 	vector<Token> v;
+	vector<string> history;
+	time_t now = time(0);
 
 	// initialize the command structure
-	cmdinit();
+	cmdMapinit();
 
 	do {
 		cout << ">>> ";
 		getline(cin, s);
 		s = trim(s);
-		cout << s << endl;
+		history.push_back(s);
 
 		v = lexer(s+"\n");
 
-		for(int i = 0; i < v.size() - 1; i++) {
-			cout << "<" << v[i].type << " , " << v[i].val <<  ">"<< endl;	
+		// print the lexer output here
+		// for(int i = 0; i < v.size() - 1; i++) {
+		// 	cout << "<" << v[i].type << " , " << v[i].val <<  ">"<< endl;	
+		// }
+
+		// do command processing here
+		if(v.size() > 1) {
+
+			if(v[0].type != "CMD") {
+				cout << "\033[1;31m Invalid. Command not found \033[0m\n";
+			} else {
+				// check number of arguments
+				if(v.size() - 2 != cmdMap[v[0].val]) {
+					cout << "\033[1;31m Invalid number of arguments for command " << v[0].val  << "\033[0m \n";
+				} else {
+					// process the command here
+				}
+			}
 		}
+
+		// reset vector holding tokens
+		v.clear();
 
 	} while(trim(s) != "exit");
 	
