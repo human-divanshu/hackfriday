@@ -1,4 +1,5 @@
 #include "myfuns.h"
+#include <cctype>
 
 string trim(string s){        
     int i, j;
@@ -9,7 +10,7 @@ string trim(string s){
 
 string lower(string s){
 	for(int i = 0; i < s.length(); i++){
-        s[i] = s[i] + 32;
+        s[i] = tolower(s[i]);
     }
     return s;
 }

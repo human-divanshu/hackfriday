@@ -40,7 +40,7 @@ void throw_error(string s)
 
 bool iskeyword(string s)
 {
-	vector<string> v = {"copy", "pwd", "cd", "move", "find", "dir"};
+	vector<string> v = {"copy", "pwd", "cd", "move", "find", "dir", "echo"};
 	for(int i = 0; i < v.size(); i++) {
 		if(v[i] == s)
 			return true;
