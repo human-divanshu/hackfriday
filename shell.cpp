@@ -333,6 +333,8 @@ int main(void)
 						time();
 					} else if(v[0].val == "history") {
 						history(historyVec);
+					} else if(v[0].val == "whoami"){
+						whoami();
 					}
 				}
 			}
