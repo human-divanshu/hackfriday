@@ -335,6 +335,18 @@ int main(void)
 						history(historyVec);
 					} else if(v[0].val == "whoami"){
 						whoami();
+					} else if(v[0].val == "copy") {
+						copy(v[1].val, v[2].val);
+					} else if(v[0].val == "cat") {
+						cat(v[1].val);
+					} else if(v[0].val == "head") {
+						head(v[1].val);
+					} else if(v[0].val == "tail") {
+						tail(v[1].val);
+					} else if(v[0].val == "del") {
+						del(v[1].val);
+					} else if(v[0].val == "rname") {
+						rname(v[1].val, v[2].val);
 					}
 				}
 			}

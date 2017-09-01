@@ -24,7 +24,7 @@ void tail(string filename);
 void man(string cmd);
 void time();
 void del(string filename);
-void rename(string filename, string newname);
+void rname(string filename, string newname);
 void sort(string filename); // sort contents
 void unique(string filename); // arrage content 
 void sleep(int timesec);
