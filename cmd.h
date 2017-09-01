@@ -12,7 +12,7 @@ void move(string file1, string des);
 void find(string filename);
 void whoami();
 void echo(string s);
-void history();
+void history(vector<string> v);
 void help();
 void cat(string filename);
 void wc(string filename);
@@ -31,3 +31,4 @@ void sleep(int timesec);
 void uptime();
 void redirect(string content, string filename); // write content to file
 void printlogo();
+string getcwd();

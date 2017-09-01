@@ -283,7 +283,7 @@ int main(void)
 {
 	string s;
 	vector<Token> v;
-	vector<string> history;
+	vector<string> historyVec;
 	time_t now = time(0);
 
 	// initialize the command structure
@@ -303,7 +303,7 @@ int main(void)
 			continue;
 		}
 
-		history.push_back(s);
+		historyVec.push_back(s);
 
 		v = lexer(s+"\n");
 
@@ -331,6 +331,8 @@ int main(void)
 						date();
 					} else if(v[0].val == "time") {
 						time();
+					} else if(v[0].val == "history") {
+						history(historyVec);
 					}
 				}
 			}

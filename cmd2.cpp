@@ -53,8 +53,8 @@ void date(){
 
 void history(vector<string> v){
     int j = 0;
-    for(i = v.size()-1; i >=0; i--){
-        cout << "\e[1;m" << 1000+j++ << "\e[0m" << v[i] << endl;
+    for(int i = v.size()-1; i >=0; i--){
+        cout << "\e[1m" << j++ << "\e[0m\t" << v[i] << endl;
     }
     return;
 }
