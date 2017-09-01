@@ -4,7 +4,7 @@ string trim(string s){
     int i, j;
     for(i = 0; s[i]==' '; i++);
     for(j = s.length()-1; s[j]==' '; j--);
-    return s.substr(i, j);
+    return s.substr(i, s.length()-j);
 }
 
 string lower(string s){
