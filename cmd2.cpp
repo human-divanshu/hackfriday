@@ -1,5 +1,5 @@
 #include "cmd.h"
-
+#include <fstream>
 #include <dirent.h>
 #include <iostream>
 #include <algorithm>
@@ -62,4 +62,15 @@ void whoami(){
     buf=(char *)malloc(10*sizeof(char));
     cuserid(buf);
     cout << buf << endl;
+}
+
+void sleep(int seconds){
+    usleep(seconds*1000000);
+    return;
+}
+
+void touch(string filename){
+    ofstream f(filename);    
+    f.close();
+    return;
 }
