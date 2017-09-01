@@ -4,15 +4,13 @@
 #include <iostream>
 #include <algorithm>
 #include <ctime>
+#include <unistd.h>
 using namespace std;
 
 void dir(string s){
     vector<string> result;
     
-    char* path = new char[s.length()];
-    for(int i = 0; i < s.length(); i++){
-        path[i] = s[i];
-    }
+    const char *path = s.c_str();
     DIR *pdir = NULL;
     pdir = opendir (path); 
     struct dirent *pent = NULL;
@@ -53,9 +51,15 @@ void date(){
 
 void history(vector<string> v){
     int j = 0;
-    for(int i = v.size()-1; i >=0; i--){
-        cout << "\e[1m" << j++ << "\e[0m\t" << v[i] << endl;
+    for(int i = 0; i < v.size(); i++){
+        cout << "\e[1m" << j++ << "\e[0m  " << v[i] << endl;
     }
     return;
 }
 
+void whoami(){
+    char *buf;
+    buf=(char *)malloc(10*sizeof(char));
+    cuserid(buf);
+    cout << buf << endl;
+}
