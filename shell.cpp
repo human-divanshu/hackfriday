@@ -259,7 +259,7 @@ int main(void)
 		s = trim(s);
 		cout << s << endl;
 
-		v = lexer(s);
+		v = lexer(s+"\n");
 
 		for(int i = 0; i < v.size(); i++) {
 			cout << "<" << v[i].type << " , " << v[i].val <<  ">"<< endl;	
