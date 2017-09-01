@@ -13,7 +13,7 @@ int main(void)
 		cout << ">>> ";
 		getline(cin, s);
 		cout << s << endl;
-	} while(ltrim(s) != "exit");
+	} while(trim(s) != "exit");
 	
 	return 0;
 }
