@@ -2,6 +2,8 @@
 #include<fstream>
 
 void copy(string path1, string path2){
+
+	cout<<path1<<"  "<<path2;
 	
 	ifstream in(path2);
 	if(in.good()){
@@ -40,6 +42,8 @@ void copy(string path1, string path2){
 
 void cat(string str){
 
+	cout<<str;
+
 	ifstream in(str);
 	if(in.good()){
 
@@ -58,6 +62,8 @@ void cat(string str){
 }
 
 void head(string str){
+
+	cout<<str;
 
 	ifstream in(str);
 	if(in.good()){
@@ -83,6 +89,7 @@ void head(string str){
 
 void tail(string str){
 
+	cout<<str;
 	ifstream in(str);
 	vector<string> vec;
 	if(in.good()){
@@ -109,11 +116,13 @@ void tail(string str){
 }
 
 void del(string file){
+	cout<<file;
 	if( remove(file.c_str()) != 0 )
     	cout<< "\e[1;31m INPUT FILENAME DOES NOT EXISTS \e[0m"<<endl;
 }
 
 void rname(string old_name, string new_name){
+	cout<<old_name<<" "<<new_name;
 	if(rename(old_name.c_str(), new_name.c_str()) != 0)
 		cout<< "\e[1;31m INPUT FILENAME DOES NOT EXISTS \e[0m"<<endl;	
 }
