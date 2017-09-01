@@ -40,7 +40,7 @@ void throw_error(string s)
 
 bool iskeyword(string s)
 {
-	vector<string> v = {"print", "input", "if", "else", "while"};
+	vector<string> v = {"copy", "pwd", "cd", "move", "find", "dir"};
 	for(int i = 0; i < v.size(); i++) {
 		if(v[i] == s)
 			return true;
@@ -56,10 +56,10 @@ Token gettoken(string s, int readstate)
 		return t; 
 	} else if(readstate == ALPHA) {
 		if(iskeyword(s)) {
-			Token t("KEYWORD", s);
+			Token t("CMD", s);
 			return t;
 		} else {
-			Token t("ID", s);
+			Token t("ATTR", s);
 			return t;
 		}
 	} else if(readstate == DIGIT) {
@@ -261,7 +261,7 @@ int main(void)
 
 		v = lexer(s+"\n");
 
-		for(int i = 0; i < v.size(); i++) {
+		for(int i = 0; i < v.size() - 1; i++) {
 			cout << "<" << v[i].type << " , " << v[i].val <<  ">"<< endl;	
 		}
 
