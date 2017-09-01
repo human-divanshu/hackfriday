@@ -5,6 +5,7 @@
 #include <map>
 #include <cctype>
 #include <ctime>
+#include "cmd.h"
 
 using namespace std;
 enum state {NONE, ALPHA, DIGIT, OPERATOR, SPACE, STRING, BLOCK, NEWLINE};
@@ -288,10 +289,20 @@ int main(void)
 	// initialize the command structure
 	cmdMapinit();
 
+	printlogo();
+
 	do {
 		cout << ">>> ";
 		getline(cin, s);
 		s = trim(s);
+
+		// cout << "size is : " << s.size() << endl;
+		// cout << "vecot size : " << v.size() << endl;
+
+		if(s.size() == 0) {
+			continue;
+		}
+
 		history.push_back(s);
 
 		v = lexer(s+"\n");
@@ -300,6 +311,8 @@ int main(void)
 		// for(int i = 0; i < v.size() - 1; i++) {
 		// 	cout << "<" << v[i].type << " , " << v[i].val <<  ">"<< endl;	
 		// }
+
+		// cout << "vecot size : " << v.size() << endl;
 
 		// do command processing here
 		if(v.size() > 1) {
@@ -312,6 +325,13 @@ int main(void)
 					cout << "\033[1;31m Invalid number of arguments for command " << v[0].val  << "\033[0m \n";
 				} else {
 					// process the command here
+					if(v[0].val == "dir") {
+						dir(".");
+					} else if(v[0].val == "date") {
+						date();
+					} else if(v[0].val == "time") {
+						time();
+					}
 				}
 			}
 		}

@@ -5,7 +5,7 @@
 using namespace std;
 
 void copy(string path1, string path2);
-void dir();
+void dir(string path);
 void pwd();
 void cd(string path);
 void move(string file1, string des);
@@ -30,3 +30,4 @@ void unique(string filename); // arrage content
 void sleep(int timesec);
 void uptime();
 void redirect(string content, string filename); // write content to file
+void printlogo();
