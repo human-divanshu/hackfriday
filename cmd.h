@@ -27,7 +27,7 @@ void del(string filename);
 void rname(string filename, string newname);
 void sort(string filename); // sort contents
 void unique(string filename); // arrage content 
-void sleep(float timesec);
+void sleep(string timesec, string type);
 void uptime();
 void redirect(string content, string filename); // write content to file
 void printlogo();

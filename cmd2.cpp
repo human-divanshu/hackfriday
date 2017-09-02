@@ -64,8 +64,8 @@ void whoami(){
     cout << buf << endl;
 }
 
-void sleep(int seconds){
-    usleep(seconds*1000000);
+void sleep(string seconds, string type){
+    //usleep(seconds*1000000);
     return;
 }
 
@@ -73,4 +73,14 @@ void touch(string filename){
     ofstream f(filename);    
     f.close();
     return;
+}
+
+string getcwd() 
+{
+    return "abc";
+}
+
+void pwd()
+{
+    cout << getcwd();
 }

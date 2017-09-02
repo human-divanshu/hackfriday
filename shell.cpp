@@ -169,7 +169,7 @@ vector<Token> lexer(string s)
 		ch = s[i++];
 		charcount++;
 		
-		if(isalpha(ch)) {
+		if(isalpha(ch) || (readstate == ALPHA && ch == '.')) {
 
 			if(readstate == ALPHA) {
 				token = token + ch;
@@ -293,7 +293,7 @@ int main(void)
 	printlogo();
 
 	do {
-		cout << ">>> ";
+		cout << getcwd() << " >> ";
 		getline(cin, s);
 		s = trim(s);
 
@@ -336,7 +336,6 @@ int main(void)
 						history(historyVec);
 					} else if(v[0].val == "whoami"){
 						whoami();
-<<<<<<< HEAD
 					} else if(v[0].val == "copy") {
 						copy(v[1].val, v[2].val);
 					} else if(v[0].val == "cat") {
@@ -349,14 +348,14 @@ int main(void)
 						del(v[1].val);
 					} else if(v[0].val == "rname") {
 						rname(v[1].val, v[2].val);
-=======
-					} else if(v[0].val == "sleep"){
-						if(v[1].type == "INT" || v[1].type == "FLOAT")
-							;//sleep(stof(v[1].val));
-						else
-							cout << "\033[1;31m Invalid argument type. Expecting time in seconds " << v[0].val  << "\033[0m \n";
-
->>>>>>> 79295770c27447f7da50a448942e14bc326a5c7f
+					} else if(v[0].val == "sleep") {
+						sleep(v[1].val, v[1].type);
+					} else if(v[0].val == "touch") {
+						touch(v[1].val);
+					} else if(v[0].val == "rname") {
+						rname(v[1].val, v[2].val);
+					} else if(v[0].val == "pwd") {
+						pwd();
 					}
 				}
 			}
