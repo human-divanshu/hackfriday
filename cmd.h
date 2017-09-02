@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <ctime>
 
 using namespace std;
 
@@ -20,13 +21,13 @@ void date();
 void diff(string file1, string file2);
 void head(string filename);
 void tail(string filename);
-void time();
+void timenow();
 void del(string filename);
 void rname(string filename, string newname);
 void sort(string filename); // sort contents
 void unique(string filename); // arrage content 
 void sleep(string timesec, string type);
-void uptime();
+void uptime(time_t pre);
 void redirect(string content, string filename); // write content to file
 void printlogo();
 void touch(string file);

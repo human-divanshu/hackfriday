@@ -1,4 +1,5 @@
 #include "cmd.h"
+
 using namespace std;
 
 void printlogo()
@@ -23,4 +24,17 @@ void printlogo()
 	"\n                                                                                   ((     (#        ((         ((    ((#"
 	"\n                                                                                   ((     (#((((((   (((((((&  ((    ((#";
 	cout << "\e[0m\n\e[1mWelcome to Kochar Tech Shell. Type help to get list of commands.\e[0m\n";
+}
+
+void echo(string s)
+{
+	cout << s << endl;
+}
+
+void uptime(time_t pre)
+{
+	int seconds = time(0) - pre;
+	int minutes = seconds / 60;
+	seconds = seconds - 60 * minutes;
+	cout << minutes << " minutes " << seconds << " seconds" << endl;
 }

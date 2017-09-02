@@ -34,7 +34,7 @@ void dir(string s){
     return;
 }
 
-void time(){
+void timenow(){
     time_t now = time(0);
     tm *ltm = localtime(&now);
     cout << "\e[1;34m" << ltm->tm_hour << ":" << 1 + ltm->tm_min << ":" << ltm->tm_sec << " \e[0m" << endl;    

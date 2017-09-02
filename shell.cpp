@@ -334,7 +334,7 @@ int main(void)
 					} else if(v[0].val == "date") {
 						date();
 					} else if(v[0].val == "time") {
-						time();
+						timenow();
 					} else if(v[0].val == "history") {
 						history(historyVec);
 					} else if(v[0].val == "whoami"){
@@ -368,6 +368,8 @@ int main(void)
 						printlogo();
 					} else if(v[0].val == "echo") {
 						echo(v[1].val);
+					} else if(v[0].val == "uptime") {
+						uptime(now);
 					}
 				}
 			}
