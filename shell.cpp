@@ -12,6 +12,7 @@ using namespace std;
 enum state {NONE, ALPHA, DIGIT, OPERATOR, SPACE, STRING, BLOCK, NEWLINE};
 map<string, string> m;
 string token;
+string workingdirectory;
 
 map<string, int> cmdMap;
 
@@ -291,9 +292,9 @@ int main(void)
 	cmdMapinit();
 
 	printlogo();
-
+	workingdirectory = getcwd();
 	do {
-		cout << getcwd() << " >> ";
+		cout << workingdirectory << " >> ";
 		getline(cin, s);
 		s = trim(s);
 
