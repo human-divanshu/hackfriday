@@ -320,11 +320,11 @@ int main(void)
 		if(v.size() > 1) {
 
 			if(v[0].type != "CMD") {
-				cout << "\033[1;31m Invalid. Command not found \033[0m\n";
+				cout << "\033[1;31mInvalid. Command not found \033[0m\n";
 			} else {
 				// check number of arguments
 				if(v.size() - 2 != cmdMap[v[0].val]) {
-					cout << "\033[1;31m Invalid number of arguments for command " << v[0].val  << "\033[0m \n";
+					cout << "\033[1;31mInvalid number of arguments for command " << v[0].val  << "\033[0m \n";
 				} else {
 					// process the command here
 					if(v[0].val == "dir") {
