@@ -1,3 +1,4 @@
+#include <fstream>
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -5,11 +6,13 @@
 #include <map>
 #include <cctype>
 #include <ctime>
+#include "cmd.h"
 
 using namespace std;
 enum state {NONE, ALPHA, DIGIT, OPERATOR, SPACE, STRING, BLOCK, NEWLINE};
 map<string, string> m;
 string token;
+string workingdirectory;
 
 map<string, int> cmdMap;
 
@@ -40,6 +43,8 @@ void cmdMapinit()
 	cmdMap["uniq"] = 1;
 	cmdMap["sleep"] = 1;
 	cmdMap["uptime"] = 0;	
+	cmdMap["touch"] = 1;
+	cmdMap["printlogo"] = 0;
 }
 
 class Token {
@@ -167,7 +172,7 @@ vector<Token> lexer(string s)
 		ch = s[i++];
 		charcount++;
 		
-		if(isalpha(ch)) {
+		if(isalpha(ch) || (readstate == ALPHA && ch == '.')) {
 
 			if(readstate == ALPHA) {
 				token = token + ch;
@@ -282,17 +287,27 @@ int main(void)
 {
 	string s;
 	vector<Token> v;
-	vector<string> history;
+	vector<string> historyVec;
 	time_t now = time(0);
 
 	// initialize the command structure
 	cmdMapinit();
 
+	printlogo();
+	workingdirectory = getcwd();
 	do {
-		cout << ">>> ";
+		cout << workingdirectory << " >> ";
 		getline(cin, s);
 		s = trim(s);
-		history.push_back(s);
+
+		// cout << "size is : " << s.size() << endl;
+		// cout << "vecot size : " << v.size() << endl;
+
+		if(s.size() == 0) {
+			continue;
+		}
+
+		historyVec.push_back(s);
 
 		v = lexer(s+"\n");
 
@@ -301,17 +316,61 @@ int main(void)
 		// 	cout << "<" << v[i].type << " , " << v[i].val <<  ">"<< endl;	
 		// }
 
+		// cout << "vecot size : " << v.size() << endl;
+
 		// do command processing here
 		if(v.size() > 1) {
 
 			if(v[0].type != "CMD") {
-				cout << "\033[1;31m Invalid. Command not found \033[0m\n";
+				cout << "\033[1;31mInvalid. Command not found \033[0m\n";
 			} else {
 				// check number of arguments
-				if(v.size() - 2 != cmdMap[v[0].val]) {
-					cout << "\033[1;31m Invalid number of arguments for command " << v[0].val  << "\033[0m \n";
+				if(v[0].val != "cd" && (v.size() - 2 != cmdMap[v[0].val])) {
+					cout << "\033[1;31mInvalid number of arguments for command " << v[0].val  << "\033[0m \n";
 				} else {
 					// process the command here
+					if(v[0].val == "dir") {
+						dir(".");
+					} else if(v[0].val == "date") {
+						date();
+					} else if(v[0].val == "time") {
+						timenow();
+					} else if(v[0].val == "history") {
+						history(historyVec);
+					} else if(v[0].val == "whoami"){
+						whoami();
+					} else if(v[0].val == "copy") {
+						copy(v[1].val, v[2].val);
+					} else if(v[0].val == "cat") {
+						cat(v[1].val);
+					} else if(v[0].val == "head") {
+						head(v[1].val);
+					} else if(v[0].val == "tail") {
+						tail(v[1].val);
+					} else if(v[0].val == "del") {
+						del(v[1].val);
+					} else if(v[0].val == "rname") {
+						rname(v[1].val, v[2].val);
+					} else if(v[0].val == "sleep") {
+						sleep(v[1].val, v[1].type);
+					} else if(v[0].val == "touch") {
+						touch(v[1].val);
+					} else if(v[0].val == "rname") {
+						rname(v[1].val, v[2].val);
+					} else if(v[0].val == "pwd") {
+						pwd();
+					} else if(v[0].val == "cd") {
+						string cdarg = "";
+						for(int i = 1; i < v.size(); i++)
+							cdarg = cdarg + v[i].val;						
+						workingdirectory = cd(cdarg);
+					} else if(v[0].val == "printlogo") {
+						printlogo();
+					} else if(v[0].val == "echo") {
+						echo(v[1].val);
+					} else if(v[0].val == "uptime") {
+						uptime(now);
+					}
 				}
 			}
 		}
