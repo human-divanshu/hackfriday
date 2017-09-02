@@ -293,7 +293,7 @@ int main(void)
 	// initialize the command structure
 	cmdMapinit();
 
-	printlogo();
+	// printlogo();
 	workingdirectory = getcwd();
 	do {
 		cout << workingdirectory << " >> ";
