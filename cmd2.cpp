@@ -87,3 +87,8 @@ void pwd()
 {
     cout << getcwd() << endl;
 }
+
+string cd(string path){
+    chdir(path.c_str());
+    return path;
+}

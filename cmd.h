@@ -7,7 +7,7 @@ using namespace std;
 void copy(string path1, string path2);
 void dir(string path);
 void pwd();
-void cd(string path);
+string cd(string path);
 void move(string file1, string des);
 void find(string filename);
 void whoami();
