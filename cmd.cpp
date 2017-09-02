@@ -88,7 +88,7 @@ void head(string str)
 
 void help(){
 	cout << "KocharTech Shell version 1.0 (for unix only)" << endl;
-	cout << "These shell commands are defined internally" << endl;
+	cout << "These shell commands are defined internally." << endl;
 	cout << "* copy [src] [dest]\t\t\tcopies a source file to some destination address" << endl;
 	cout << "* dir\t\t\t shows the list of files in current directory" << endl;
 	cout << "* pwd\t\t\tshows the present working directory" << endl;
