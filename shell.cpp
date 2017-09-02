@@ -39,7 +39,7 @@ void cmdMapinit()
 	cmdMap["man"] = 1;
 	cmdMap["time"] = 0;
 	cmdMap["del"] = 1;
-	cmdMap["rename"] = 2;
+	cmdMap["rname"] = 2;
 	cmdMap["uniq"] = 1;
 	cmdMap["sleep"] = 1;
 	cmdMap["uptime"] = 0;	
@@ -370,6 +370,8 @@ int main(void)
 						echo(v[1].val);
 					} else if(v[0].val == "uptime") {
 						uptime(now);
+					} else if(v[0].val == "help") {
+						help();
 					}
 				}
 			}
