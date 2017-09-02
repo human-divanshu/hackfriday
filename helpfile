@@ -1,0 +1,29 @@
+KocharTech Shell version 1.0 (for unix only)
+These shell commands are defined internally
+
+* copy [src] [dest]      | copies a source file to some destination address
+* dir					 | shows the list of files in current directory
+* pwd					 | shows the present working directory
+* cd [path]              | changes the current working directory to the given path
+* move [src] [dest]		 | moves the source file to some destination address
+* find [keyword] [path]  | finds occurances of a keyword in the given file
+* whoami				 | returns the active current user
+* echo [something]		 | prints the argument to the terminal as is
+* history				 | displays the previously executed commands in the current session
+* help					 | shows help menu (this one)
+* cat [file]			 | displays the content of the file
+* wc [file]				 | shows the number of words, characters and lines in a file
+* date                   | shows the current date
+* diff [file1] [file2]   | shows the difference between 2 files
+* head [file]            | shows first 10 lines of a file
+* tail [file]            | shows last 10 lines of a file
+* del [file]             | deleted the file
+* rname [oldname] [new]  | renames a file from old to new
+* sort [file]			 | sorts and displays content of the file
+* unique [file]			 | shows distince words of a file
+* sleep [time]           | sleeps for given time
+* uptime				 | shows uptime of the terminal
+* printlogo				 | prints KocharTech logo
+* touch	[filename]		 | creates new file
+* mkdir [name]			 | creates a directory with given name
+* rmdir [name]			 | removes the directory

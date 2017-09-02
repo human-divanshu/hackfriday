@@ -86,6 +86,36 @@ void head(string str)
 
 }
 
+void help(){
+	cout << "KocharTech Shell version 1.0 (for unix only)" << endl;
+	cout << "These shell commands are defined internally" << endl;
+	cout << "* copy [src] [dest]     | copies a source file to some destination address" << endl;
+	cout << "* dir					 | shows the list of files in current directory" << endl;
+	cout << "* pwd					 | shows the present working directory" << endl;
+	cout << "* cd [path]             | changes the current working directory to the given path" << endl;
+	cout << "* move [src] [dest]	 | moves the source file to some destination address" << endl;
+	cout << "* find [keyword] [path] | finds occurances of a keyword in the given file" << endl;
+	cout << "* whoami				 | returns the active current user" << endl;
+	cout << "* echo [something]		 | prints the argument to the terminal as is" << endl;
+	cout << "* history				 | displays the previously executed commands in the current session" << endl;
+	cout << "* help					 | shows help menu (this one)" << endl;
+	cout << "* cat [file]			 | displays the content of the file" << endl;
+	cout << "* wc [file]			 | shows the number of words, characters and lines in a file" << endl;
+	cout << "* date                  | shows the current date" << endl;
+	cout << "* diff [file1] [file2]  | shows the difference between 2 files" << endl;
+	cout << "* head [file]           | shows first 10 lines of a file" << endl;
+	cout << "* tail [file]           | shows last 10 lines of a file" << endl;
+	cout << "* del [file]            | deleted the file" << endl;
+	cout << "* rname [oldname] [new] | renames a file from old to new" << endl;
+	cout << "* sort [file]			 | sorts and displays content of the file" << endl;
+	cout << "* unique [file]		 | shows distince words of a file" << endl;
+	cout << "* sleep [time]          | sleeps for given time" << endl;
+	cout << "* uptime				 | shows uptime of the terminal" << endl;
+	cout << "* printlogo			 | prints KocharTech logo" << endl;
+	cout << "* touch	[filename]	 | creates new file" << endl;
+	cout << "* mkdir [name]			 | creates a directory with given name" << endl;
+	cout << "* rmdir [name]			 | removes the directory" << endl;
+}
 void tail(string str)
 {
 
