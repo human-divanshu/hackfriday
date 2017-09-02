@@ -32,4 +32,5 @@ void uptime();
 void redirect(string content, string filename); // write content to file
 void printlogo();
 void touch(string file);
+void makedir(string path);
 string getcwd();

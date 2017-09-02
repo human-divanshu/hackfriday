@@ -65,7 +65,8 @@ void whoami(){
 }
 
 void sleep(string seconds, string type){
-    //usleep(seconds*1000000);
+    if(type == "INT" || type == "FLOAT")
+        usleep(stof(seconds)*1000000);
     return;
 }
 
@@ -90,6 +91,10 @@ void pwd()
 
 string cd(string path){
     if(chdir(path.c_str()) == 0);
-    else cout << "\033[1;31m Invalid path.. \033[0m\n";
+    else cout << "\033[1;31mInvalid path.. \033[0m\n";
     return getcwd();
+}
+
+void makedir(string path1){
+    
 }
