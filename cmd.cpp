@@ -1,10 +1,8 @@
 #include "cmd.h"
-#include <fstream>
+#include<fstream>
+#include<cstring>
 
-void copy(string path1, string path2)
-{
-
-	
+void copy(string path1, string path2){	
 	ifstream in(path2);
 	if(in.good()){
 		// OUTPUT ALREADY EXISTS
@@ -40,9 +38,7 @@ void copy(string path1, string path2)
 
 }
 
-void cat(string str)
-{
-
+void cat(string str){
 
 	ifstream in(str);
 	if(in.good()){
@@ -61,8 +57,7 @@ void cat(string str)
 	}
 }
 
-void head(string str)
-{
+void head(string str){
 
 	ifstream in(str);
 	if(in.good()){
@@ -144,15 +139,68 @@ void tail(string str)
 	}
 }
 
-void del(string file)
-{
+void del(string file){
+
 	if( remove(file.c_str()) != 0 )
     	cout<< "\e[1;31m INPUT FILENAME DOES NOT EXISTS \e[0m"<<endl;
 }
 
-void rname(string old_name, string new_name)
-{
+void rname(string old_name, string new_name){
 
 	if(rename(old_name.c_str(), new_name.c_str()) != 0)
 		cout<< "\e[1;31m INPUT FILENAME DOES NOT EXISTS \e[0m"<<endl;	
+}
+
+void move(string file, string dest){
+
+	ifstream in(file);
+	if(in.good()){
+
+		string dir = dest+"/"+file;
+		copy(file, dir);
+		del(file);
+
+	}
+	else{
+
+		cout<< "\e[1;31m INPUT FILENAME DOES NOT EXISTS \e[0m"<<endl;	
+	}
+}
+
+void wc(string filename){
+	long long lines = 0;
+	long long words = 0;
+	long long chars = 0;
+	string str;
+	ifstream in(filename);
+	
+	while(getline(in, str)){
+		lines++;
+		int flag = 0;
+		int len = strlen(str.c_str());
+
+		for(int i = 0; i < len; i++){
+			if(str.at(i) == ' '){
+				chars++;
+
+				if(flag == 1){
+					words++;
+					flag = 0;
+				}
+			}
+
+			else{
+
+				chars++;
+				flag = 1;
+			}
+		}
+
+		if(flag == 1)
+			words++;
+	}
+
+	cout<<"Lines :"<<lines<<endl;
+	cout<<"Words :"<<words<<endl;
+	cout<<"Characters :"<<chars<<endl;
 }
