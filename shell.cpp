@@ -45,6 +45,9 @@ void cmdMapinit()
 	cmdMap["uptime"] = 0;	
 	cmdMap["touch"] = 1;
 	cmdMap["printlogo"] = 0;
+
+	// add dynamically added binaries
+
 }
 
 class Token {
@@ -372,6 +375,8 @@ int main(void)
 						uptime(now);
 					} else if(v[0].val == "help") {
 						help();
+					} else if(v[0].val == "wc") {
+						wc(v[1].val);
 					}
 				}
 			}
