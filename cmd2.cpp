@@ -77,10 +77,13 @@ void touch(string filename){
 
 string getcwd() 
 {
-    return "abc";
+    char cwd[1024];    
+    getcwd(cwd, sizeof(cwd));
+    string str(cwd);
+    return str;
 }
 
 void pwd()
 {
-    cout << getcwd();
+    cout << getcwd() << endl;
 }
