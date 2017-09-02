@@ -89,6 +89,7 @@ void pwd()
 }
 
 string cd(string path){
-    chdir(path.c_str());
-    return path;
+    if(chdir(path.c_str()) == 0);
+    else cout << "\033[1;31m Invalid path. \033[0m\n";
+    return getcwd();
 }
