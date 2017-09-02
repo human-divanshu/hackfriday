@@ -28,9 +28,8 @@ void dir(string s){
     
     sort(result.begin(), result.end());
     for(int i = 0; i < result.size(); i++){
-        cout << result[i] << "  ";
+        cout << result[i] << "\n";
     }
-    cout << endl;
     
     return;
 }

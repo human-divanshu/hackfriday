@@ -43,6 +43,8 @@ void cmdMapinit()
 	cmdMap["uniq"] = 1;
 	cmdMap["sleep"] = 1;
 	cmdMap["uptime"] = 0;	
+	cmdMap["touch"] = 1;
+	cmdMap["printlogo"] = 0;
 }
 
 class Token {
@@ -323,7 +325,7 @@ int main(void)
 				cout << "\033[1;31mInvalid. Command not found \033[0m\n";
 			} else {
 				// check number of arguments
-				if(v.size() - 2 != cmdMap[v[0].val]) {
+				if(v[0].val != "cd" && (v.size() - 2 != cmdMap[v[0].val])) {
 					cout << "\033[1;31mInvalid number of arguments for command " << v[0].val  << "\033[0m \n";
 				} else {
 					// process the command here
@@ -358,7 +360,14 @@ int main(void)
 					} else if(v[0].val == "pwd") {
 						pwd();
 					} else if(v[0].val == "cd") {
-						cd(v[1].val);
+						string cdarg = "";
+						for(int i = 1; i < v.size(); i++)
+							cdarg = cdarg + v[i].val;						
+						workingdirectory = cd(cdarg);
+					} else if(v[0].val == "printlogo") {
+						printlogo();
+					} else if(v[0].val == "echo") {
+						echo(v[1].val);
 					}
 				}
 			}

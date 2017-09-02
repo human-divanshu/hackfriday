@@ -17,11 +17,9 @@ void help();
 void cat(string filename);
 void wc(string filename);
 void date();
-void date();
 void diff(string file1, string file2);
 void head(string filename);
 void tail(string filename);
-void man(string cmd);
 void time();
 void del(string filename);
 void rname(string filename, string newname);
@@ -33,4 +31,5 @@ void redirect(string content, string filename); // write content to file
 void printlogo();
 void touch(string file);
 void makedir(string path);
+void rmdir(string path);
 string getcwd();
