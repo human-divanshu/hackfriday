@@ -357,6 +357,8 @@ int main(void)
 						rname(v[1].val, v[2].val);
 					} else if(v[0].val == "pwd") {
 						pwd();
+					} else if(v[0].val == "cd") {
+						cd(v[1].val);
 					}
 				}
 			}
