@@ -89,33 +89,34 @@ void head(string str)
 void help(){
 	cout << "KocharTech Shell version 1.0 (for unix only)" << endl;
 	cout << "These shell commands are defined internally" << endl;
-	cout << "* copy [src] [dest]     | copies a source file to some destination address" << endl;
-	cout << "* dir					 | shows the list of files in current directory" << endl;
-	cout << "* pwd					 | shows the present working directory" << endl;
-	cout << "* cd [path]             | changes the current working directory to the given path" << endl;
-	cout << "* move [src] [dest]	 | moves the source file to some destination address" << endl;
-	cout << "* find [keyword] [path] | finds occurances of a keyword in the given file" << endl;
-	cout << "* whoami				 | returns the active current user" << endl;
-	cout << "* echo [something]		 | prints the argument to the terminal as is" << endl;
-	cout << "* history				 | displays the previously executed commands in the current session" << endl;
-	cout << "* help					 | shows help menu (this one)" << endl;
-	cout << "* cat [file]			 | displays the content of the file" << endl;
-	cout << "* wc [file]			 | shows the number of words, characters and lines in a file" << endl;
-	cout << "* date                  | shows the current date" << endl;
-	cout << "* diff [file1] [file2]  | shows the difference between 2 files" << endl;
-	cout << "* head [file]           | shows first 10 lines of a file" << endl;
-	cout << "* tail [file]           | shows last 10 lines of a file" << endl;
-	cout << "* del [file]            | deleted the file" << endl;
-	cout << "* rname [oldname] [new] | renames a file from old to new" << endl;
-	cout << "* sort [file]			 | sorts and displays content of the file" << endl;
-	cout << "* unique [file]		 | shows distince words of a file" << endl;
-	cout << "* sleep [time]          | sleeps for given time" << endl;
-	cout << "* uptime				 | shows uptime of the terminal" << endl;
-	cout << "* printlogo			 | prints KocharTech logo" << endl;
-	cout << "* touch	[filename]	 | creates new file" << endl;
-	cout << "* mkdir [name]			 | creates a directory with given name" << endl;
-	cout << "* rmdir [name]			 | removes the directory" << endl;
+	cout << "* copy [src] [dest]\t\t\tcopies a source file to some destination address" << endl;
+	cout << "* dir\t\t\t shows the list of files in current directory" << endl;
+	cout << "* pwd\t\t\tshows the present working directory" << endl;
+	cout << "* cd [path]\t\t\tchanges the current working directory to the given path" << endl;
+	cout << "* move [src] [dest]\t\t\tmoves the source file to some destination address" << endl;
+	cout << "* find [keyword] [path]\t\t\tfinds occurances of a keyword in the given file" << endl;
+	cout << "* whoami\t\t\treturns the active current user" << endl;
+	cout << "* echo [something]\t\t\tprints the argument to the terminal as is" << endl;
+	cout << "* history\t\t\tdisplays the previously executed commands in the current session" << endl;
+	cout << "* help\t\t\tshows help menu (this one)" << endl;
+	cout << "* cat [file]\t\t\tdisplays the content of the file" << endl;
+	cout << "* wc [file]\t\t\tshows the number of words, characters and lines in a file" << endl;
+	cout << "* date\t\t\tshows the current date" << endl;
+	cout << "* diff [file1] [file2]\t\t\tshows the difference between 2 files" << endl;
+	cout << "* head [file]\t\t\tshows first 10 lines of a file" << endl;
+	cout << "* tail [file]\t\t\tshows last 10 lines of a file" << endl;
+	cout << "* del [file]\t\t\tdeleted the file" << endl;
+	cout << "* rname [oldname] [new]\t\t\trenames a file from old to new" << endl;
+	cout << "* sort [file]\t\t\tsorts and displays content of the file" << endl;
+	cout << "* unique [file]\t\t\tshows distince words of a file" << endl;
+	cout << "* sleep [time]\t\t\tsleeps for given time" << endl;
+	cout << "* uptime\t\t\tshows uptime of the terminal" << endl;
+	cout << "* printlogo\t\t\tprints KocharTech logo" << endl;
+	cout << "* touch [filename]\t\t\tcreates new file" << endl;
+	cout << "* mkdir [name]\t\t\tcreates a directory with given name" << endl;
+	cout << "* rmdir [name]\t\t\tremoves the directory" << endl;
 }
+
 void tail(string str)
 {
 
