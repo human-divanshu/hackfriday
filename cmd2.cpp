@@ -90,5 +90,5 @@ void pwd()
 
 string cd(string path){
     chdir(path.c_str());
-    return path;
+    return getcwd();
 }
