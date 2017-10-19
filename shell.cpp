@@ -39,12 +39,15 @@ void cmdMapinit()
 	cmdMap["man"] = 1;
 	cmdMap["time"] = 0;
 	cmdMap["del"] = 1;
-	cmdMap["rename"] = 2;
+	cmdMap["rname"] = 2;
 	cmdMap["uniq"] = 1;
 	cmdMap["sleep"] = 1;
 	cmdMap["uptime"] = 0;	
 	cmdMap["touch"] = 1;
 	cmdMap["printlogo"] = 0;
+
+	// add dynamically added binaries
+
 }
 
 class Token {
@@ -293,7 +296,7 @@ int main(void)
 	// initialize the command structure
 	cmdMapinit();
 
-	printlogo();
+	// printlogo();
 	workingdirectory = getcwd();
 	do {
 		cout << workingdirectory << " >> ";
@@ -370,6 +373,10 @@ int main(void)
 						echo(v[1].val);
 					} else if(v[0].val == "uptime") {
 						uptime(now);
+					} else if(v[0].val == "help") {
+						help();
+					} else if(v[0].val == "wc") {
+						wc(v[1].val);
 					}
 				}
 			}
