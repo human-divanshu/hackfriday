@@ -219,7 +219,7 @@ vector<Token> lexer(string s)
 				token = ch;
 			} else if(readstate == DIGIT) {
 				m.push_back(gettoken(token, readstate));
-				//cout << "Token : " << token << endl;
+				cout << "Token : " << token << endl;
 				readstate = OPERATOR;
 				token = ch;
 			} else if(readstate == NONE) {
@@ -227,7 +227,7 @@ vector<Token> lexer(string s)
 				readstate = OPERATOR;
 			} else if(readstate == OPERATOR) {
 				m.push_back(gettoken(token, readstate));
-				//cout << "Token : " << token << endl;
+				cout << "Token : " << token << endl;
 				token = ch;
 				readstate = DIGIT;
 			} else if(readstate == STRING) {
